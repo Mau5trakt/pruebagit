@@ -1,0 +1,1 @@
+db.execute('INSERT INTO empresas (nombre, correo, direccion, hash, decripcion, foto) VALUES (?, ?, ?, ?, ?, NULL)', nombre, correo, direccion, hash, descripcion)

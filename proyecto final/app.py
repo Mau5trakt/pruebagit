@@ -137,8 +137,7 @@ def registro_empresa():
         if len(correo_confirm) != 0:
             return apology("el correo ya existe", 400)
         else:
-            db.execute('INSERT INTO empresas ("nombre","correo","direccion","hash","foto","decripcion","id_empresa") VALUES (?, ?, ?,?, NULL, NULL, ?);',
-                       nombre, correo, direccion, hash, descripcion)
+            db.execute('INSERT INTO empresas (nombre, correo, direccion, hash, decripcion, foto) VALUES (?, ?, ?, ?, ?, NULL)', nombre, correo, direccion, hash, descripcion)
             return render_template("login.html")
     return render_template("re.html")
 
