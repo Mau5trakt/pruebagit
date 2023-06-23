@@ -149,7 +149,9 @@ def index_usuario():
         "SELECT * FROM pasantias JOIN pasantias_carreras ON (pasantias.id_pasantia = pasantias_carreras.id_pasantia) JOIN empresas ON (empresas.id_empresa = pasantias.id_empresa) WHERE pasantias_carreras.id_carrera = ?;", session["id_carrera"])
     for pasantia in pasantias:
         print(pasantia)
-    return render_template("pagina_inicio.html", pasantias=pasantias)
+
+    print(session["id"])
+    return render_template("pagina_inicio.html", pasantias=pasantias, id=session["id"])
 
 
 @app.route("/empresa/<int:id>")
@@ -157,6 +159,19 @@ def empresa(id):
     empresa = db.execute("SELECT * FROM pasantias where id_empresa = ? ", id)
     return render_template("vistaempresa.html", empresa=empresa)
 
+@app.route("/perfil/<int:id>")
+def perfil(id):
+    publicaciones = db.execute("SELECT * FROM estudiantes INNER JOIN publicaciones on (publicaciones.id_estudiante = estudiantes.id_estudiante) WHERE estudiantes.id_estudiante = ? ;", id)
+    print(session["id"])
+    for publicacion in publicaciones:
+        print(publicacion)
+    
+    nombre = db.execute("SELECT * FROM estudiantes WHERE id_estudiante = ?", id)[0]
+    print(nombre)
+
+    print(type(nombre["descripcion"]))
+
+    return render_template("perfil_usuario.html", publicaciones=publicaciones, nombre=nombre )
 
 @app.route("/logout")
 def logout():

@@ -1,5 +1,6 @@
 .degradado{
   background: linear-gradient(#f5f6f7, 70% , #13678A);
+  height: 100vh;
 }
 .publicaciones{
   width:50%;
@@ -19,6 +20,8 @@
     width:74.5%;
     border: 1px solid lightgray;
     font-family: 'inter', Fjalla One;
+    background-color: #e4e4e4;
+    border-radius: 3%;
   }
   .titulo{
     font-size: 24px;
@@ -36,6 +39,8 @@
     background: #6699ff;
     padding: 10px;
     text-align:center;
+    border-radius:3%;
+    width: 95%;
 
   }
   .pie a{

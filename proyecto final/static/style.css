@@ -21,6 +21,7 @@
     margin-top:5%;
     width: 80%;
     height: 600px;
+    overflow: hidden;
     background
   }
   h1{
@@ -29,16 +30,13 @@
   }
   .izquierda{
     top: 10%;
-    left: 0;
     height: 100%;
     width: 50%;
     background:#C4EEF2;
   }
   img {
-    float: left;
-    width:500px;
-    height:300px;
-    margin-top:15%;
+    width:800px;
+    height:500px;
   }
   .img1{
     float: left;
